@@ -1,0 +1,49 @@
+// swift-tools-version: 6.0
+import PackageDescription
+
+let package = Package(
+    name: "PluginActivityBar",
+    defaultLocalization: "en",
+    platforms: [
+        .macOS(.v14)
+    ],
+    products: [
+        .library(
+            name: "PluginActivityBar",
+            targets: ["PluginActivityBar"]
+        ),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/lumi-softworks/LumiProviders.git", from: "1.21.0"),
+        .package(url: "https://github.com/lumi-softworks/LumiKernel.git", from: "1.1.0"),
+        .package(url: "https://github.com/lumi-softworks/LumiUI.git", from: "1.12.0"),
+        .package(url: "https://github.com/lumi-softworks/LumiLogging.git", from: "1.0.1"),
+        .package(url: "https://github.com/lumi-softworks/LumiLocalization.git", from: "1.0.1"),
+    ],
+    targets: [
+        .target(
+            name: "PluginActivityBar",
+            dependencies: [
+                .product(name: "KernelCore", package: "LumiKernel"),
+                .product(name: "ProviderActivityBar", package: "LumiProviders"),
+                .product(name: "LumiUI", package: "LumiUI"),
+                .product(name: "LumiLoggingKit", package: "LumiLogging"),
+                .product(name: "ProviderPluginManaging", package: "LumiProviders"),
+                .product(name: "ProviderStorage", package: "LumiProviders"),
+                .product(name: "ProviderRootView", package: "LumiProviders"),
+                .product(name: "LumiLocalizationKit", package: "LumiLocalization"),
+            ],
+            resources: [.process("../../Resources/Localizable.xcstrings")]
+        ),
+        .testTarget(
+            name: "PluginActivityBarTests",
+            dependencies: [
+                "PluginActivityBar",
+                .product(name: "KernelCore", package: "LumiKernel"),
+                .product(name: "ProviderActivityBar", package: "LumiProviders"),
+                .product(name: "ProviderStorage", package: "LumiProviders"),
+                .product(name: "ProviderRootView", package: "LumiProviders"),
+            ]
+        ),
+    ]
+)

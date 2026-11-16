@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EADEBFA1A83B2195BE4F39F /* MetronomeMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */; };
+		3FB404CECA6BD85826D92FE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88EDEC69D98649193A6AF742 /* InfoPlist.strings */; };
+		636936988A774422FAB46D68 /* MetronomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */; };
+		6C7678C5AB05FB1E04953C7C /* FactoryMetronomeIOS in Frameworks */ = {isa = PBXBuildFile; productRef = 29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */; };
+		8304C4FDCF4EE135B899C42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 357BB5EA121806105FC64247 /* Assets.xcassets */; };
+		8752736139FB219130DA4CFB /* FactoryMetronomeMac in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */; };
+		AE9A070B5413A4B0E058188C /* MetronomeIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeIOSApp.swift; sourceTree = "<group>"; };
+		248D4D1AA9674F12B68FF92E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		357BB5EA121806105FC64247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3979F46B1CF563C6D6F990D4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		67C012AFAF999E2EFE00E9CA /* FactoryMetronome */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FactoryMetronome; path = Packages/FactoryMetronome; sourceTree = SOURCE_ROOT; };
+		8AFAF1515D2069AEB137BAB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2BA36331EBA36C19C2EF450 /* Metronome.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Metronome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeApp.swift; sourceTree = "<group>"; };
+		BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeMacApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8013D333A4936DBA88CFA1A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8752736139FB219130DA4CFB /* FactoryMetronomeMac in Frameworks */,
+				6C7678C5AB05FB1E04953C7C /* FactoryMetronomeIOS in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A5E1EE9D2C5E98B5F327BC1 = {
+			isa = PBXGroup;
+			children = (
+				919C83E42B2462B1564976B2 /* MetronomeApp */,
+				74B9064C69489FE381097E69 /* Packages */,
+				53D63B33B4B9AC1E4EF28A3A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		53D63B33B4B9AC1E4EF28A3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2BA36331EBA36C19C2EF450 /* Metronome.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74B9064C69489FE381097E69 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				67C012AFAF999E2EFE00E9CA /* FactoryMetronome */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		919C83E42B2462B1564976B2 /* MetronomeApp */ = {
+			isa = PBXGroup;
+			children = (
+				357BB5EA121806105FC64247 /* Assets.xcassets */,
+				A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */,
+				15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */,
+				BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */,
+				88EDEC69D98649193A6AF742 /* InfoPlist.strings */,
+			);
+			path = MetronomeApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A473BF0057614979432E9215 /* Metronome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9A7E676AA823D8F5E1BEBD4 /* Build configuration list for PBXNativeTarget "Metronome" */;
+			buildPhases = (
+				7A3A72E1CEDDDD70D40C56C2 /* Sources */,
+				16DD34FCFE920D3877D45647 /* Resources */,
+				8013D333A4936DBA88CFA1A5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Metronome;
+			packageProductDependencies = (
+				9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */,
+				29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */,
+			);
+			productName = Metronome;
+			productReference = A2BA36331EBA36C19C2EF450 /* Metronome.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6699B9A28126A1BA2554DBEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A473BF0057614979432E9215 = {
+						DevelopmentTeam = Y6HZ9JJYV6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2177CA8AEB4796FDF068B047 /* Build configuration list for PBXProject "Metronome" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"zh-Hans",
+				"zh-Hant",
+			);
+			mainGroup = 2A5E1EE9D2C5E98B5F327BC1;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F36C7715F52859599F6D7F5A /* XCRemoteSwiftPackageReference "LumiKernel" */,
+				44BBC0F7CA411B3B40759DB2 /* XCRemoteSwiftPackageReference "LumiLocalization" */,
+				38B066915AA5E193BE93BEB9 /* XCRemoteSwiftPackageReference "LumiLogging" */,
+				8452B2F3E4D5A51EA8650859 /* XCRemoteSwiftPackageReference "LumiPluginAbout" */,
+				D50E02AB59865CE6D062ECE3 /* XCRemoteSwiftPackageReference "LumiPluginCommand" */,
+				66C7AC96EAA2E8AB3E97E1F4 /* XCRemoteSwiftPackageReference "LumiPluginPluginManager" */,
+				67A9B8A1692427DB026D6462 /* XCRemoteSwiftPackageReference "LumiPluginSettingView" */,
+				EF349FC51B7E3352DDBBCBF2 /* XCRemoteSwiftPackageReference "LumiPluginStorage" */,
+				D68BEED3B9012F3942F152EA /* XCRemoteSwiftPackageReference "LumiPluginThemePack" */,
+				4CD28730F520D6B69B995DD0 /* XCRemoteSwiftPackageReference "LumiPluginToast" */,
+				88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */,
+				D1B160776045282E4F4312B5 /* XCRemoteSwiftPackageReference "LumiSettings" */,
+				734CF5DB1354F34E40119AF2 /* XCRemoteSwiftPackageReference "LumiThemePack" */,
+				3B70ECFBB9B9CDD9B36EA178 /* XCRemoteSwiftPackageReference "LumiUI" */,
+				B462D4DF56776C69A0A7FFB6 /* XCLocalSwiftPackageReference "Packages/FactoryMetronome" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 53D63B33B4B9AC1E4EF28A3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A473BF0057614979432E9215 /* Metronome */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16DD34FCFE920D3877D45647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8304C4FDCF4EE135B899C42D /* Assets.xcassets in Resources */,
+				3FB404CECA6BD85826D92FE0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A3A72E1CEDDDD70D40C56C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636936988A774422FAB46D68 /* MetronomeApp.swift in Sources */,
+				AE9A070B5413A4B0E058188C /* MetronomeIOSApp.swift in Sources */,
+				3EADEBFA1A83B2195BE4F39F /* MetronomeMacApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		88EDEC69D98649193A6AF742 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AFAF1515D2069AEB137BAB2 /* en */,
+				248D4D1AA9674F12B68FF92E /* zh-Hans */,
+				3979F46B1CF563C6D6F990D4 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		019E91272C56F1249D058476 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MetronomeApp/App.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Y6HZ9JJYV6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_FILE[sdk=iphoneos*]" = "MetronomeApp/Metronome-iOS-Info.plist";
+				"INFOPLIST_FILE[sdk=iphonesimulator*]" = "MetronomeApp/Metronome-iOS-Info.plist";
+				"INFOPLIST_FILE[sdk=macosx*]" = "MetronomeApp/Metronome-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Ticktone;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffic.metronome;
+				PRODUCT_NAME = Metronome;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		16BEA5C58EA4101E5AB203FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MetronomeApp/App.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Y6HZ9JJYV6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_FILE[sdk=iphoneos*]" = "MetronomeApp/Metronome-iOS-Info.plist";
+				"INFOPLIST_FILE[sdk=iphonesimulator*]" = "MetronomeApp/Metronome-iOS-Info.plist";
+				"INFOPLIST_FILE[sdk=macosx*]" = "MetronomeApp/Metronome-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Ticktone;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coffic.metronome;
+				PRODUCT_NAME = Metronome;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3609254E12C682A5FEA4B244 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		518E35EC8764A1E1ACF93C45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2177CA8AEB4796FDF068B047 /* Build configuration list for PBXProject "Metronome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3609254E12C682A5FEA4B244 /* Debug */,
+				518E35EC8764A1E1ACF93C45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A9A7E676AA823D8F5E1BEBD4 /* Build configuration list for PBXNativeTarget "Metronome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16BEA5C58EA4101E5AB203FF /* Debug */,
+				019E91272C56F1249D058476 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B462D4DF56776C69A0A7FFB6 /* XCLocalSwiftPackageReference "Packages/FactoryMetronome" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/FactoryMetronome;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38B066915AA5E193BE93BEB9 /* XCRemoteSwiftPackageReference "LumiLogging" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiLogging.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+		3B70ECFBB9B9CDD9B36EA178 /* XCRemoteSwiftPackageReference "LumiUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiUI.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.17.1;
+			};
+		};
+		44BBC0F7CA411B3B40759DB2 /* XCRemoteSwiftPackageReference "LumiLocalization" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiLocalization.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+		4CD28730F520D6B69B995DD0 /* XCRemoteSwiftPackageReference "LumiPluginToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginToast.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.4;
+			};
+		};
+		66C7AC96EAA2E8AB3E97E1F4 /* XCRemoteSwiftPackageReference "LumiPluginPluginManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginPluginManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.7.1;
+			};
+		};
+		67A9B8A1692427DB026D6462 /* XCRemoteSwiftPackageReference "LumiPluginSettingView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginSettingView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.4;
+			};
+		};
+		734CF5DB1354F34E40119AF2 /* XCRemoteSwiftPackageReference "LumiThemePack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiThemePack.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.13;
+			};
+		};
+		8452B2F3E4D5A51EA8650859 /* XCRemoteSwiftPackageReference "LumiPluginAbout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginAbout.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.4;
+			};
+		};
+		88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiProviders.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.23.0;
+			};
+		};
+		D1B160776045282E4F4312B5 /* XCRemoteSwiftPackageReference "LumiSettings" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiSettings.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1;
+			};
+		};
+		D50E02AB59865CE6D062ECE3 /* XCRemoteSwiftPackageReference "LumiPluginCommand" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginCommand.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+		D68BEED3B9012F3942F152EA /* XCRemoteSwiftPackageReference "LumiPluginThemePack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginThemePack.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.2;
+			};
+		};
+		EF349FC51B7E3352DDBBCBF2 /* XCRemoteSwiftPackageReference "LumiPluginStorage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginStorage.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.2;
+			};
+		};
+		F36C7715F52859599F6D7F5A /* XCRemoteSwiftPackageReference "LumiKernel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiKernel.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FactoryMetronomeIOS;
+		};
+		9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FactoryMetronomeMac;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 6699B9A28126A1BA2554DBEB /* Project object */;
+}

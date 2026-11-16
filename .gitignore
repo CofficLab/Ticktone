@@ -1,0 +1,15 @@
+# macOS / Xcode
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+
+# Finder metadata
+.DS_Store
+
+# Swift Package Manager
+.swiftpm/
+.build/
+SourcePackages/
+Packages/*/Package.resolved
+!Metronome.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
