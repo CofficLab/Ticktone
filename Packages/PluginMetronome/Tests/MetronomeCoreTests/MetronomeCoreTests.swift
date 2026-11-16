@@ -8,25 +8,6 @@ final class MetronomeCoreTests: XCTestCase {
         XCTAssertEqual(MetronomeTempo(bpm: 120).bpm, 120)
     }
 
-    func testFlashRateLimiterCapsAtThreePerSecond() {
-        var limiter = FlashRateLimiter(maxPerSecond: 3)
-        // 300 BPM：每 0.2s 一次强拍候选。
-        let allowed = stride(from: 0.0, through: 2.0, by: 0.2).filter {
-            limiter.shouldAllow(at: $0)
-        }
-        XCTAssertEqual(allowed.count, 7)
-        let rounded = allowed.map { ($0 * 10).rounded() / 10 }
-        XCTAssertEqual(rounded, [0, 0.2, 0.4, 1.0, 1.2, 1.4, 2.0])
-    }
-
-    func testFlashRateLimiterDoesNotLimitSlowTempo() {
-        var limiter = FlashRateLimiter(maxPerSecond: 3)
-        XCTAssertTrue(limiter.shouldAllow(at: 0))
-        XCTAssertTrue(limiter.shouldAllow(at: 1.0))
-        XCTAssertTrue(limiter.shouldAllow(at: 2.0))
-        XCTAssertTrue(limiter.shouldAllow(at: 3.0))
-    }
-
     func testBeatInterval() {
         XCTAssertEqual(MetronomeTempo(bpm: 120).beatInterval, 0.5, accuracy: 1e-9)
     }
@@ -59,7 +40,6 @@ final class MetronomeCoreTests: XCTestCase {
         defaults.removePersistentDomain(forName: "MetronomeCoreTests.settings")
 
         var settings = MetronomeSettings(bpm: 132, beatsPerMeasure: 7, beatUnit: 8, subdivision: .eighth)
-        settings.flashEnabled = false
         settings.save(defaults: defaults)
 
         let loaded = MetronomeSettings.load(defaults: defaults)
@@ -137,7 +117,7 @@ final class MetronomeCoreTests: XCTestCase {
         let json = """
         {"bpm":144,"beatsPerMeasure":3,"beatUnit":8,"subdivision":1,
          "accents":[2,1,1],"soundSet":"classic","volume":0.5,
-         "flashEnabled":false,"hapticsEnabled":false}
+         "hapticsEnabled":false}
         """
         let settings = try JSONDecoder().decode(MetronomeSettings.self, from: Data(json.utf8))
         XCTAssertEqual(settings.bpm, 144)
@@ -146,18 +126,6 @@ final class MetronomeCoreTests: XCTestCase {
         XCTAssertFalse(settings.tempoLockEnabled)
         XCTAssertEqual(settings.countInMeasures, 0)
         XCTAssertFalse(settings.training.isEnabled)
-    }
-
-    /// 「屏幕闪光」是视图层能力，macOS/iOS 都支持；旧存档缺少该字段时应回落为开启，
-    /// 不能因为字段缺失导致整份设置解码失败。
-    func testMissingFlashKeyKeepsScreenFlashDefault() throws {
-        let json = """
-        {"bpm":90,"beatsPerMeasure":4,"beatUnit":4,"subdivision":1,
-         "accents":[2,1,1,1],"soundSet":"classic","volume":0.7}
-        """
-        let settings = try JSONDecoder().decode(MetronomeSettings.self, from: Data(json.utf8))
-        XCTAssertEqual(settings.bpm, 90)
-        XCTAssertTrue(settings.flashEnabled)
     }
 
     // MARK: - 摆锤相位

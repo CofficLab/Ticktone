@@ -9,11 +9,8 @@ public struct MetronomeSettings: Equatable, Codable, Sendable {
     public var accents: [BeatAccent]
     public var soundSet: ClickSoundSet
     public var volume: Float
-    /// 屏幕闪光：强拍时舞台区域闪一层与外观反差的色层（浅色下为深色、深色下为白色；
-    /// 视图层绘制，不依赖相机闪光灯硬件）。
-    public var flashEnabled: Bool
     public var hapticsEnabled: Bool
-    /// 静音练习：只保留摆锤/闪光等视觉提示，不调度音频。
+    /// 静音练习：只保留摆锤等视觉提示，不调度音频。
     public var soundEnabled: Bool
     /// 演出锁定：播放中禁用速度/拍号编辑。
     public var tempoLockEnabled: Bool
@@ -30,7 +27,6 @@ public struct MetronomeSettings: Equatable, Codable, Sendable {
         accents: [BeatAccent]? = nil,
         soundSet: ClickSoundSet = .classic,
         volume: Float = 0.8,
-        flashEnabled: Bool = true,
         hapticsEnabled: Bool = true,
         soundEnabled: Bool = true,
         tempoLockEnabled: Bool = false,
@@ -50,7 +46,6 @@ public struct MetronomeSettings: Equatable, Codable, Sendable {
         self.accents = pattern.accents
         self.soundSet = soundSet
         self.volume = min(max(volume, 0), 1)
-        self.flashEnabled = flashEnabled
         self.hapticsEnabled = hapticsEnabled
         self.soundEnabled = soundEnabled
         self.tempoLockEnabled = tempoLockEnabled
@@ -69,7 +64,6 @@ public struct MetronomeSettings: Equatable, Codable, Sendable {
             accents: try container.decodeIfPresent([BeatAccent].self, forKey: .accents),
             soundSet: try container.decodeIfPresent(ClickSoundSet.self, forKey: .soundSet) ?? .classic,
             volume: try container.decodeIfPresent(Float.self, forKey: .volume) ?? 0.8,
-            flashEnabled: try container.decodeIfPresent(Bool.self, forKey: .flashEnabled) ?? true,
             hapticsEnabled: try container.decodeIfPresent(Bool.self, forKey: .hapticsEnabled) ?? true,
             soundEnabled: try container.decodeIfPresent(Bool.self, forKey: .soundEnabled) ?? true,
             tempoLockEnabled: try container.decodeIfPresent(Bool.self, forKey: .tempoLockEnabled) ?? false,

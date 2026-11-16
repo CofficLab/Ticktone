@@ -185,16 +185,6 @@ struct MetronomeControlPanel: View {
                 get: { !viewModel.settings.soundEnabled },
                 set: { viewModel.setSoundEnabled(!$0) }
             ))
-            Toggle("屏幕闪光（视觉提示）", isOn: Binding(
-                get: { viewModel.settings.flashEnabled },
-                set: { viewModel.setFlashEnabled($0) }
-            ))
-            if viewModel.settings.flashEnabled {
-                Text("光敏安全：任意 1 秒内最多闪 3 次；节拍更快时会自动跳过部分强拍。")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
             #if os(iOS)
             Toggle("触觉反馈", isOn: Binding(
                 get: { viewModel.settings.hapticsEnabled },

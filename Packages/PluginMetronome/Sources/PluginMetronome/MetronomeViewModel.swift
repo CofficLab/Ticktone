@@ -10,7 +10,7 @@ import UIKit
 /// 节拍器会话状态机：UI 的唯一数据源。
 ///
 /// 所有设置改动立即持久化并同步给音频引擎；引擎回调的 tick 事件
-/// 驱动拍点指示灯、摆锤、闪光与触觉反馈。
+/// 驱动拍点指示灯、摆锤与触觉反馈。
 @MainActor
 public final class MetronomeViewModel: ObservableObject {
     // MARK: - Published 状态
@@ -18,13 +18,11 @@ public final class MetronomeViewModel: ObservableObject {
     @Published public private(set) var settings: MetronomeSettings
     @Published public private(set) var presets: [MetronomePreset]
     @Published public private(set) var isPlaying = false
-    /// 最近一次获准触发屏幕闪光的强拍 tick（已按每秒最多 3 次限流）。
-    @Published public private(set) var flashTick: TickInfo?
-    /// 最近一次**已经到达出声时刻**的整拍 tick，驱动拍点与屏幕闪光。
+    /// 最近一次**已经到达出声时刻**的整拍 tick，驱动拍点指示灯。
     ///
     /// 引擎会提前约 0.25s 调度 tick（细分开启时一次会排好几拍），若直接使用
-    /// 最新调度结果，拍点/闪光会被更靠后的 tick 覆盖，导致开启细分或高 BPM 时
-    /// 指示灯与闪光停摆。这里和 `audibleTick` 一样按出声时刻发布。
+    /// 最新调度结果，拍点会被更靠后的 tick 覆盖，导致开启细分或高 BPM 时
+    /// 指示灯停摆。这里和 `audibleTick` 一样按出声时刻发布。
     @Published public private(set) var lastTick: TickInfo?
     /// 最近一次**已经到达出声时刻**的非细分 tick，驱动小节读数、摆锤与训练速度。
     ///
@@ -38,8 +36,6 @@ public final class MetronomeViewModel: ObservableObject {
 
     private let engine = MetronomeEngine()
     private var tapCalculator = TapTempoCalculator()
-    /// 光敏安全：无论节拍多快，屏幕闪光最多每秒 3 次。
-    private var flashRateLimiter = FlashRateLimiter(maxPerSecond: 3)
     private let defaults: UserDefaults
 
     #if os(iOS)
@@ -103,8 +99,6 @@ public final class MetronomeViewModel: ObservableObject {
         isPlaying = true
         lastTick = nil
         audibleTick = nil
-        flashTick = nil
-        flashRateLimiter.reset()
         isCountingIn = settings.countInMeasures > 0
         tapCalculator.reset()
         engine.start(settings: settings)
@@ -120,7 +114,6 @@ public final class MetronomeViewModel: ObservableObject {
         isCountingIn = false
         lastTick = nil
         audibleTick = nil
-        flashTick = nil
         engine.stop()
     }
 
@@ -174,17 +167,12 @@ public final class MetronomeViewModel: ObservableObject {
         apply()
     }
 
-    public func setFlashEnabled(_ enabled: Bool) {
-        settings.flashEnabled = enabled
-        apply()
-    }
-
     public func setHapticsEnabled(_ enabled: Bool) {
         settings.hapticsEnabled = enabled
         apply()
     }
 
-    /// 静音练习：只保留摆锤、拍点与闪光的视觉提示。
+    /// 静音练习：只保留摆锤与拍点的视觉提示。
     public func setSoundEnabled(_ enabled: Bool) {
         settings.soundEnabled = enabled
         apply()
@@ -274,7 +262,7 @@ public final class MetronomeViewModel: ObservableObject {
     }
 
     private func handleTick(_ info: TickInfo) {
-        // 拍点与闪光只跟随整拍；细分 tick 不参与视觉提示。
+        // 拍点只跟随整拍；细分 tick 不参与视觉提示。
         guard !info.isSubdivision else { return }
 
         // 在预计出声时刻更新「已听到」状态并触发触觉；调度前瞻约 0.25s。
@@ -286,10 +274,6 @@ public final class MetronomeViewModel: ObservableObject {
             guard let self, self.isPlaying else { return }
             self.lastTick = info
             self.audibleTick = info
-            if info.accent == .accent,
-               self.flashRateLimiter.shouldAllow(at: info.uptime) {
-                self.flashTick = info
-            }
             self.isCountingIn = info.isCountIn
             #if os(iOS)
             guard self.settings.hapticsEnabled else { return }
