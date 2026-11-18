@@ -1,0 +1,200 @@
+name: Release
+
+# push 到 main 即发布 macOS 版：按 Conventional Commits 计算版本号
+# （bump-version.sh / calculate-version.sh，与原 Tag & Release 一致），
+# 构建 Release、Developer ID 签名、公证、打 DMG，连同 changelog
+# 发布 GitHub Release，并上传到 R2。iOS 版本不在此发布。
+#
+# 递增规则（沿用 .github/scripts/bump-version.sh）：
+#   - BREAKING CHANGE / feat! / fix! / refactor!  → major
+#   - feat:                                       → minor
+#   - 其他（fix / chore / docs / style / ...）      → patch
+# 版本号来源：project.yml 的 MARKETING_VERSION 与最新 v* tag 中较高者。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: release-ticktone
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  SCHEME: Metronome
+  PROJECT: Metronome.xcodeproj
+  APP_NAME: Metronome
+  ENTITLEMENTS_PATH: MetronomeApp/App.entitlements
+  REPO_LINK: https://github.com/CofficLab/Ticktone
+  R2_API_URL: https://data.coffic.cn
+
+jobs:
+  release:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Show toolchain
+        run: |
+          swift --version
+          xcodebuild -version
+
+      - name: Compute release version and tag
+        run: |
+          set -euo pipefail
+          chmod +x .github/scripts/bump-version.sh .github/scripts/calculate-version.sh
+          version="$(bash .github/scripts/calculate-version.sh)"
+          build="$(git rev-list --count HEAD)"
+          tag="v${version}"
+          echo "Version -> ${version} (build ${build}, tag ${tag})"
+          if git show-ref --verify --quiet "refs/tags/${tag}"; then
+            if [[ "$(git rev-parse "${tag}^{commit}")" != "$(git rev-parse HEAD)" ]]; then
+              echo "::error::Tag ${tag} already points at another commit; bump MARKETING_VERSION in project.yml or investigate."
+              exit 1
+            fi
+            echo "Tag ${tag} already targets this commit; the release will be updated in place."
+          fi
+          previous_tag="$(git tag -l 'v*' | sort -V | grep -Fvx "${tag}" | tail -n 1 || true)"
+          {
+            echo "VERSION=${version}"
+            echo "BUILD_NUMBER=${build}"
+            echo "TAG=${tag}"
+            echo "PREVIOUS_TAG=${previous_tag}"
+          } >> "$GITHUB_ENV"
+
+      - name: Setup macOS signing
+        id: signing
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          BUILD_CERTIFICATE_P12_PASSWORD: ${{ secrets.BUILD_CERTIFICATE_P12_PASSWORD }}
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ISSUER_ID }}
+        run: |
+          chmod +x .github/scripts/setup-macos-signing.sh
+          source .github/scripts/setup-macos-signing.sh
+          echo "signing_identity=${SIGNING_IDENTITY}" >> "$GITHUB_OUTPUT"
+          echo "team_id=${TEAM_ID}" >> "$GITHUB_OUTPUT"
+          echo "api_key_path=${API_KEY_PATH}" >> "$GITHUB_OUTPUT"
+
+      - name: Build app (Release, macOS arm64, ad-hoc signed)
+        run: |
+          set -euo pipefail
+          # A SYMROOT override would leak into every SPM checkout and break
+          # cross-package swiftmodule discovery; -derivedDataPath keeps
+          # package builds intact.
+          xcodebuild \
+            -project "${{ env.PROJECT }}" \
+            -scheme "${{ env.SCHEME }}" \
+            -configuration Release \
+            -destination 'platform=macOS,arch=arm64' \
+            ARCHS=arm64 ONLY_ACTIVE_ARCH=YES \
+            MARKETING_VERSION="${VERSION}" \
+            CURRENT_PROJECT_VERSION="${BUILD_NUMBER}" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="-" \
+            DEVELOPMENT_TEAM="${{ steps.signing.outputs.team_id }}" \
+            CODE_SIGN_ENTITLEMENTS="" \
+            CODE_SIGN_INJECT_BASE_ENTITLEMENTS=NO \
+            PROVISIONING_PROFILE_SPECIFIER="" \
+            CODE_SIGNING_REQUIRED=NO \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES \
+            -derivedDataPath build/DerivedData \
+            -skipPackagePluginValidation \
+            -skipMacroValidation \
+            build
+
+      - name: Codesign app
+        run: |
+          set -euo pipefail
+          app="build/DerivedData/Build/Products/Release/${APP_NAME}.app"
+          [[ -d "$app" ]] || { echo "::error::Built app not found at $app"; exit 1; }
+          chmod +x .github/scripts/sign_app.sh
+          .github/scripts/sign_app.sh "$app" \
+            "${{ steps.signing.outputs.signing_identity }}" \
+            "${{ env.ENTITLEMENTS_PATH }}"
+
+      - name: Create DMG
+        run: |
+          set -euo pipefail
+          mkdir -p updates
+          hdiutil create -volname "Ticktone" \
+            -srcfolder "build/DerivedData/Build/Products/Release/${APP_NAME}.app" \
+            -ov -format UDZO "updates/Ticktone-${VERSION}.dmg"
+
+      - name: Notarize DMG
+        run: |
+          set -euo pipefail
+          dmg="updates/Ticktone-${VERSION}.dmg"
+          xcrun notarytool submit "$dmg" \
+            --key "${{ steps.signing.outputs.api_key_path }}" \
+            --key-id "${{ secrets.APP_STORE_CONNECT_KEY_ID }}" \
+            --issuer "${{ secrets.APP_STORE_CONNECT_KEY_ISSUER_ID }}" \
+            --wait --timeout 15m
+          xcrun stapler staple "$dmg"
+
+      - name: Validate notarization
+        run: xcrun stapler validate "updates/Ticktone-${VERSION}.dmg"
+
+      - name: Generate changelog
+        run: |
+          set -euo pipefail
+          if [[ -z "${PREVIOUS_TAG:-}" ]]; then
+            RANGE="HEAD"
+          else
+            RANGE="${PREVIOUS_TAG}..HEAD"
+          fi
+          changes="$(git log ${RANGE} --no-merges --pretty=format:'- %s' | sort -u | head -30 || true)"
+          [[ -n "$changes" ]] || changes="- Maintenance and stability improvements"
+          {
+            echo "## Changes"
+            echo ""
+            echo "${changes}"
+          } > changelog.md
+          cat changelog.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.TAG }}
+          body_path: changelog.md
+          files: |
+            updates/Ticktone-*.dmg
+
+      - name: Upload to R2
+        env:
+          WEBHOOK_SECRET: ${{ secrets.COFFIC_APP_UPLOAD_KEY }}
+        run: |
+          set -euo pipefail
+          upload_file() {
+            local file="$1"
+            local key="$2"
+            local response
+            echo "Uploading to R2: ${key}"
+            response="$(curl -sS -X POST "${R2_API_URL}/ticktone/upload" \
+              -H "X-Webhook-Secret: ${WEBHOOK_SECRET}" \
+              -F "file=@${file}" \
+              -F "key=${key}")"
+            echo "Response: ${response}"
+            echo "${response}" | grep -q '"success":true'
+          }
+          upload_file "updates/Ticktone-${VERSION}.dmg" "ticktone/Ticktone-${VERSION}.dmg"
+
+      - name: Clean signing credentials
+        if: always()
+        run: |
+          security delete-keychain "${RUNNER_TEMP}/app-signing.keychain-db" 2>/dev/null || true
+          rm -f "${RUNNER_TEMP}/build_certificate.p12" \
+            "$HOME/private_keys/AuthKey_${{ secrets.APP_STORE_CONNECT_KEY_ID }}.p8" || true
