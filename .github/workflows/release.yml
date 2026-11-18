@@ -126,13 +126,18 @@ jobs:
             "${{ steps.signing.outputs.signing_identity }}" \
             "${{ env.ENTITLEMENTS_PATH }}"
 
-      - name: Create DMG
+      - name: Create designed DMG
         run: |
           set -euo pipefail
-          mkdir -p updates
-          hdiutil create -volname "Ticktone" \
-            -srcfolder "build/DerivedData/Build/Products/Release/${APP_NAME}.app" \
-            -ov -format UDZO "updates/Ticktone-${VERSION}.dmg"
+          chmod +x .github/scripts/create-designed-dmg.sh .github/scripts/sign-dmg.sh
+          .github/scripts/create-designed-dmg.sh \
+            "build/DerivedData/Build/Products/Release/${APP_NAME}.app" \
+            "updates/Ticktone-${VERSION}.dmg" \
+            "Ticktone" .github/dmg/Ticktone-dmg-background.png Ticktone
+
+      - name: Sign disk image
+        run: |
+          .github/scripts/sign-dmg.sh "updates/Ticktone-${VERSION}.dmg" "${{ steps.signing.outputs.signing_identity }}"
 
       - name: Notarize DMG
         run: |
