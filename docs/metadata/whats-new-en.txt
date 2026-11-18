@@ -1,0 +1,1 @@
+Welcome to Ticktone 1.0: a sample-accurate metronome with tap tempo, accent patterns, tempo training, presets, and three click sound sets. Fully offline — no account required.

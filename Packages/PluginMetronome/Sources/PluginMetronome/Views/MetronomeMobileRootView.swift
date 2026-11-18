@@ -46,8 +46,8 @@ public struct MetronomeMobileRootView: View {
                     } label: {
                         Image(systemName: viewModel.isPlaying ? "stop.fill" : "play.fill")
                     }
-                    .accessibilityLabel(viewModel.isPlaying ? "停止" : "开始")
-                    .accessibilityHint(viewModel.isPlaying ? "停止节拍" : "开始节拍")
+                    .accessibilityLabel(NSLocalizedString(viewModel.isPlaying ? "停止" : "开始", bundle: .main, comment: ""))
+                    .accessibilityHint(NSLocalizedString(viewModel.isPlaying ? "停止节拍" : "开始节拍", bundle: .main, comment: ""))
                 }
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     ForEach(Array(trailingToolbarItems.enumerated()), id: \.offset) { _, item in
@@ -67,7 +67,7 @@ public struct MetronomeMobileRootView: View {
                 viewModel.clearPauseNotice()
             }
         } message: {
-            Text(viewModel.pauseNotice ?? "")
+            Text(LocalizedStringKey(viewModel.pauseNotice ?? ""))
         }
     }
 }

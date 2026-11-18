@@ -38,7 +38,7 @@ struct MetronomeControlPanel: View {
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
-                Text(tempoSummary)
+                Text(LocalizedStringKey(tempoSummary))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .monospacedDigit()
@@ -107,7 +107,7 @@ struct MetronomeControlPanel: View {
     private var tempoSummary: String {
         let bpm = Int(viewModel.settings.bpm)
         if viewModel.settings.training.isEnabled {
-            return "起始 \(bpm) BPM"
+            return String(format: NSLocalizedString("起始 %lld BPM", bundle: .main, comment: ""), bpm)
         }
         return "\(bpm) BPM · \(MetronomeTempo(bpm: viewModel.settings.bpm).marking)"
     }
@@ -138,7 +138,7 @@ struct MetronomeControlPanel: View {
                 set: { viewModel.setSubdivision($0) }
             )) {
                 ForEach(MetronomeSubdivision.allCases) { subdivision in
-                    Text(subdivision.displayName).tag(subdivision)
+                    Text(LocalizedStringKey(subdivision.displayName)).tag(subdivision)
                 }
             }
             .labelsHidden()
@@ -156,7 +156,7 @@ struct MetronomeControlPanel: View {
                 set: { viewModel.setSoundSet($0) }
             )) {
                 ForEach(ClickSoundSet.allCases) { set in
-                    Text(set.displayName).tag(set)
+                    Text(LocalizedStringKey(set.displayName)).tag(set)
                 }
             }
             .labelsHidden()
@@ -243,7 +243,7 @@ struct MetronomeControlPanel: View {
                         step: 1
                     )
                     HStack {
-                        Text("每 \(viewModel.settings.training.measuresPerStep) 小节")
+                        Text(String(format: NSLocalizedString("每 %lld 小节", bundle: .main, comment: ""), viewModel.settings.training.measuresPerStep))
                             .font(.caption)
                         Spacer()
                         Stepper("", value: Binding(
@@ -253,7 +253,7 @@ struct MetronomeControlPanel: View {
                         .labelsHidden()
                     }
                     HStack {
-                        Text("每次调整 \(Int(viewModel.settings.training.step)) BPM")
+                        Text(String(format: NSLocalizedString("每次调整 %lld BPM", bundle: .main, comment: ""), Int(viewModel.settings.training.step)))
                             .font(.caption)
                         Spacer()
                         Stepper("", value: Binding(
@@ -284,10 +284,11 @@ struct MetronomeControlPanel: View {
         let training = viewModel.settings.training
         let base = viewModel.settings.bpm
         if abs(training.targetBPM - base) < 0.0001 {
-            return "目标与起始速度相同；拖动目标滑杆即可设置加速或减速。"
+            return NSLocalizedString("目标与起始速度相同；拖动目标滑杆即可设置加速或减速。", bundle: .main, comment: "")
         }
         let sign = training.targetBPM > base ? "+" : "-"
-        return "从 \(Int(base)) BPM 起，每 \(training.measuresPerStep) 小节 \(sign)\(Int(training.step))，至 \(Int(training.targetBPM)) BPM。"
+        return String(format: NSLocalizedString("从 %lld BPM 起，每 %lld 小节 %@%lld，至 %lld BPM。", bundle: .main, comment: ""),
+                      Int(base), training.measuresPerStep, sign, Int(training.step), Int(training.targetBPM))
     }
 
     // MARK: - 预设
@@ -298,7 +299,7 @@ struct MetronomeControlPanel: View {
                 Text("预设").font(.subheadline.weight(.semibold))
                 Spacer()
                 Button {
-                    presetName = "预设 \(viewModel.presets.count + 1)"
+                    presetName = String(format: NSLocalizedString("预设 %lld", bundle: .main, comment: ""), viewModel.presets.count + 1)
                     showsPresetNaming = true
                 } label: {
                     Text("保存当前")
@@ -339,7 +340,7 @@ struct MetronomeControlPanel: View {
                                 .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel("删除预设「\(preset.name)」")
+                        .accessibilityLabel(String(format: NSLocalizedString("删除预设「%@」", bundle: .main, comment: ""), preset.name))
                     }
                 }
             }
@@ -348,7 +349,7 @@ struct MetronomeControlPanel: View {
             TextField("名称", text: $presetName)
             Button("保存") {
                 let name = presetName.trimmingCharacters(in: .whitespacesAndNewlines)
-                viewModel.savePreset(name: name.isEmpty ? "预设 \(viewModel.presets.count + 1)" : name)
+                viewModel.savePreset(name: name.isEmpty ? String(format: NSLocalizedString("预设 %lld", bundle: .main, comment: ""), viewModel.presets.count + 1) : name)
             }
             Button("取消", role: .cancel) {}
         }

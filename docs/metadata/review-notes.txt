@@ -1,0 +1,15 @@
+Ticktone is a fully offline metronome for macOS and iOS.
+
+- No account, login, or demo credentials are required. All features are available immediately on launch.
+- The app collects no data, contains no ads or analytics, and makes no network requests.
+- No special hardware or setup is needed.
+
+Suggested test flow:
+1. Launch the app; the metronome view appears with a default tempo.
+2. Start the click, adjust BPM with the slider or +/- controls, and try Tap Tempo.
+3. Change the time signature and cycle a beat's accent level (weak / normal / accent / mute).
+4. Switch the click sound set (Classic / Electronic / Wood) and adjust volume.
+5. Save a preset and recall it.
+6. On iOS, try tempo training and haptics; haptic feedback requires a physical device.
+
+Audio plays through the device speaker. The pendulum and beat indicators animate while the click runs.

@@ -1,0 +1,23 @@
+Ticktone - Precise Metronome for Practice
+
+A precise, native metronome for macOS and iOS. Ticktone runs entirely on-device: no account, no network, no analytics — just a steady click you can trust.
+
+Key Features
+• Sample-accurate engine — a dedicated audio render path keeps the click steady even under UI load
+• Tempo 30–300 BPM with Italian tempo markings, tap tempo, and tempo lock
+• Time signatures and subdivisions — beats per measure, beat unit, duple / triple / quadruple subdivisions
+• Accent patterns — cycle weak / normal / accent / mute for each beat
+• Practice tools — count-in measures, tempo training with target BPM and step size, visual flash, and haptics
+• Presets — save and recall complete configurations
+• Pendulum and beat indicators that follow your configured pattern
+• Three click sound sets (Classic, Electronic, Wood) with adjustable volume
+
+Why Ticktone?
+
+Many metronomes drift when the screen gets busy, or bury simple practice tools behind accounts and subscriptions. Ticktone keeps the timing engine on a dedicated audio path, so the click stays rock-solid while you scroll, switch presets, or train tempo. Everything is included from the first launch — no sign-in, no ads, no tracking.
+
+Perfect For
+• Instrumentalists building steady time — piano, guitar, violin, drums, and more
+• Students practicing with a teacher's tempo assignments
+• Teachers demonstrating rhythm patterns with accents and subdivisions
+• Anyone who wants a clean, native metronome that works offline

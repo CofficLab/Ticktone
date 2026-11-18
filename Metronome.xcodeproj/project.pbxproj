@@ -11,12 +11,14 @@
 		3FB404CECA6BD85826D92FE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88EDEC69D98649193A6AF742 /* InfoPlist.strings */; };
 		636936988A774422FAB46D68 /* MetronomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */; };
 		6C7678C5AB05FB1E04953C7C /* FactoryMetronomeIOS in Frameworks */ = {isa = PBXBuildFile; productRef = 29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */; };
+		7730BE0D578E67CA49DB118D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0995329E396AF76446D94788 /* Localizable.xcstrings */; };
 		8304C4FDCF4EE135B899C42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 357BB5EA121806105FC64247 /* Assets.xcassets */; };
 		8752736139FB219130DA4CFB /* FactoryMetronomeMac in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */; };
 		AE9A070B5413A4B0E058188C /* MetronomeIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0995329E396AF76446D94788 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeIOSApp.swift; sourceTree = "<group>"; };
 		248D4D1AA9674F12B68FF92E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		357BB5EA121806105FC64247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				357BB5EA121806105FC64247 /* Assets.xcassets */,
+				0995329E396AF76446D94788 /* Localizable.xcstrings */,
 				A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */,
 				15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */,
 				BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */,
@@ -123,8 +126,10 @@
 			knownRegions = (
 				Base,
 				en,
+				"zh-HK",
 				"zh-Hans",
 				"zh-Hant",
+				"zh-TW",
 			);
 			mainGroup = 2A5E1EE9D2C5E98B5F327BC1;
 			minimizedProjectReferenceProxies = 1;
@@ -162,6 +167,7 @@
 			files = (
 				8304C4FDCF4EE135B899C42D /* Assets.xcassets in Resources */,
 				3FB404CECA6BD85826D92FE0 /* InfoPlist.strings in Resources */,
+				7730BE0D578E67CA49DB118D /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

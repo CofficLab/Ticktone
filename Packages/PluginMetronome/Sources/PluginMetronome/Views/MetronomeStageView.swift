@@ -23,7 +23,8 @@ struct MetronomeStageView: View {
             }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(
-                "\(Int(viewModel.effectiveBPM)) BPM，\(MetronomeTempo(bpm: viewModel.effectiveBPM).marking)"
+                String(format: NSLocalizedString("%lld BPM，%@", bundle: .main, comment: ""),
+                       Int(viewModel.effectiveBPM), MetronomeTempo(bpm: viewModel.effectiveBPM).marking)
             )
             .accessibilityValue(statusText.trimmingCharacters(in: .whitespaces))
             .accessibilityIdentifier("metronome.bpmReadout")
@@ -41,13 +42,13 @@ struct MetronomeStageView: View {
         if viewModel.isCountingIn {
             let total = viewModel.settings.countInMeasures
             let current = min((viewModel.audibleTick?.measure ?? 0) + 1, max(1, total))
-            return "预备 \(current)/\(total)"
+            return String(format: NSLocalizedString("预备 %lld/%lld", bundle: .main, comment: ""), current, total)
         }
         let measure = (viewModel.audibleTick?.measure ?? 0) + 1
         if viewModel.settings.training.isEnabled {
-            return "第 \(measure) 小节 · 目标 \(Int(viewModel.settings.training.targetBPM)) BPM"
+            return String(format: NSLocalizedString("第 %lld 小节 · 目标 %lld BPM", bundle: .main, comment: ""), measure, Int(viewModel.settings.training.targetBPM))
         }
-        return "第 \(measure) 小节"
+        return String(format: NSLocalizedString("第 %lld 小节", bundle: .main, comment: ""), measure)
     }
 }
 
@@ -61,7 +62,7 @@ struct MetronomePlayButton: View {
             viewModel.toggle()
         } label: {
             Label(
-                playLabel,
+                LocalizedStringKey(playLabel),
                 systemImage: viewModel.isPlaying ? "stop.fill" : "play.fill"
             )
             .font(.headline)
@@ -69,7 +70,7 @@ struct MetronomePlayButton: View {
             .frame(height: height)
         }
         .buttonStyle(MetronomePlayButtonStyle(isPlaying: viewModel.isPlaying))
-        .accessibilityHint(viewModel.isPlaying ? "停止节拍" : "开始节拍")
+        .accessibilityHint(NSLocalizedString(viewModel.isPlaying ? "停止节拍" : "开始节拍", bundle: .main, comment: ""))
         #if os(macOS)
         .keyboardShortcut(.space, modifiers: [])
         .help("空格键开始或停止")

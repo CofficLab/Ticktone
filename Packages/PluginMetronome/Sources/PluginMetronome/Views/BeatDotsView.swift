@@ -97,10 +97,10 @@ struct BeatDotsView: View {
     private func helpText(beat: Int) -> String {
         let level: String
         switch viewModel.settings.pattern.accent(at: beat) {
-        case .accent: level = "强"
-        case .normal: level = "普通"
-        case .muted: level = "静音"
+        case .accent: level = NSLocalizedString("强", bundle: .main, comment: "")
+        case .normal: level = NSLocalizedString("普通", bundle: .main, comment: "")
+        case .muted: level = NSLocalizedString("静音", bundle: .main, comment: "")
         }
-        return "第 \(beat + 1) 拍：\(level)（点按切换）"
+        return String(format: NSLocalizedString("第 %lld 拍：%@（点按切换）", bundle: .main, comment: ""), beat + 1, level)
     }
 }
