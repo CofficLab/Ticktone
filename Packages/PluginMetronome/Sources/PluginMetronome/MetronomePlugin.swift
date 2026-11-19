@@ -61,12 +61,4 @@ public final class MetronomePlugin: SuperPlugin {
     public func onUnregister(kernel: KernelCoreContainer) throws {
         kernel.resolveProvider((any DocsViewProviding).self)?.removeEntries(id: id)
     }
-
-    // MARK: - Mobile
-
-    #if os(iOS)
-    public func makeMobileRootView() -> AnyView {
-        AnyView(MetronomeMobileRootView(feature: MetronomeMobileFeature(viewModel: sharedViewModel)))
-    }
-    #endif
 }

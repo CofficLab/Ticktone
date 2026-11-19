@@ -1,5 +1,6 @@
 import Foundation
 import KernelCore
+import LumiUI
 import ProviderToolbar
 import SwiftUI
 import Testing
@@ -52,7 +53,7 @@ struct SettingsToolbarPluginTests {
         #expect(toolbar.toolbarItems.count == 1)
         let item = toolbar.toolbarItems.first
         #expect(item?.id == "com.coffic.lumi.plugin.setting-toolbar.toolbar")
-        #expect(item?.title == "设置")
+        #expect(item?.title == LumiUILocalization.string("Settings"))
         #expect(item?.placement == .trailing)
         #expect(item?.category == .global)
         #expect(item?.order == 300)

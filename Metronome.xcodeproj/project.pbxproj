@@ -7,27 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EADEBFA1A83B2195BE4F39F /* MetronomeMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */; };
+		12418A22E9314DBF9C1A4C8B /* ProviderToast in Frameworks */ = {isa = PBXBuildFile; productRef = 0205DEDFCE0FDD0225BBE94D /* ProviderToast */; };
+		22F4B73C2F6F55E212BA2102 /* PluginStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CECB0E8CC947DBF2EBE7AEA3 /* PluginStorage */; };
+		3F5765FE69A7F6BF6B55DE70 /* ProviderSettingView in Frameworks */ = {isa = PBXBuildFile; productRef = EA08DACD98D409E2485ED6BD /* ProviderSettingView */; };
 		3FB404CECA6BD85826D92FE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88EDEC69D98649193A6AF742 /* InfoPlist.strings */; };
+		4A5B0A10E1385F0DA830F92A /* ProviderToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = ECD2B91E313326C57D02933F /* ProviderToolbar */; };
 		636936988A774422FAB46D68 /* MetronomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */; };
-		6C7678C5AB05FB1E04953C7C /* FactoryMetronomeIOS in Frameworks */ = {isa = PBXBuildFile; productRef = 29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */; };
+		65BD83C8CC503C95AD3DBAA7 /* KernelCore in Frameworks */ = {isa = PBXBuildFile; productRef = 37BC15DCEB22C916FB765002 /* KernelCore */; };
+		69B17DFA9F082C04A233477E /* ProviderRootView in Frameworks */ = {isa = PBXBuildFile; productRef = ABEE7BC7F72EF4DB28289D7B /* ProviderRootView */; };
+		6B9012B6B419D5035A7C2E59 /* PluginActivityBar in Frameworks */ = {isa = PBXBuildFile; productRef = 36221AC5B03173938B8D5A23 /* PluginActivityBar */; };
+		6C7678C5AB05FB1E04953C7C /* PluginSettingGeneral in Frameworks */ = {isa = PBXBuildFile; productRef = 98B5058D133507E2F1973377 /* PluginSettingGeneral */; };
+		6EAC75B98AD23F760C310836 /* PluginAbout in Frameworks */ = {isa = PBXBuildFile; productRef = DCB9E87EE2BA54F49237A712 /* PluginAbout */; };
 		7730BE0D578E67CA49DB118D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0995329E396AF76446D94788 /* Localizable.xcstrings */; };
+		7A68E2A812F2D831EDB8FF53 /* ProviderTheme in Frameworks */ = {isa = PBXBuildFile; productRef = AB79A060C7BE3BF561E5E9EE /* ProviderTheme */; };
+		7DDD77876C9423D4F2F8CD95 /* LumiFactory in Frameworks */ = {isa = PBXBuildFile; productRef = 3AF2C8AF50745AB9A3D6410C /* LumiFactory */; };
 		8304C4FDCF4EE135B899C42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 357BB5EA121806105FC64247 /* Assets.xcassets */; };
-		8752736139FB219130DA4CFB /* FactoryMetronomeMac in Frameworks */ = {isa = PBXBuildFile; productRef = 9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */; };
-		AE9A070B5413A4B0E058188C /* MetronomeIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */; };
+		8752736139FB219130DA4CFB /* PluginMetronome in Frameworks */ = {isa = PBXBuildFile; productRef = E87C0633FB95388D673103E1 /* PluginMetronome */; };
+		9E6F511929238C99254D6B6F /* PluginCommand in Frameworks */ = {isa = PBXBuildFile; productRef = 82362ACBFA5B20D614BF2F44 /* PluginCommand */; };
+		A2695A4CC927FFBFD3AEFB33 /* PluginSettingToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = 9DFB54942A99C176902A1583 /* PluginSettingToolbar */; };
+		A86534027793040D2367C8EA /* WorkbenchRootView in Frameworks */ = {isa = PBXBuildFile; productRef = BC9F944E256264CA0B88A73E /* WorkbenchRootView */; };
+		A87D6522A9682A008CB4DB09 /* PluginSettingView in Frameworks */ = {isa = PBXBuildFile; productRef = B35D08749C5BEBFC9181DC0B /* PluginSettingView */; };
+		B1BF3CD1864BEF650146BED6 /* ProviderCommand in Frameworks */ = {isa = PBXBuildFile; productRef = F5875C281158F1D42928CEF0 /* ProviderCommand */; };
+		D8F21A133E6E03633D96291E /* MetronomeManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407BDD07F4EB5079E00FA855 /* MetronomeManifest.swift */; };
+		E33BDF6D688A57761D8E2637 /* PluginThemePack in Frameworks */ = {isa = PBXBuildFile; productRef = 70C89458545261479D138AAA /* PluginThemePack */; };
+		F12BB70AA2A06369AAB68075 /* PluginToast in Frameworks */ = {isa = PBXBuildFile; productRef = C9CF68D472149034793C8488 /* PluginToast */; };
+		F39F85E5CBED8C48A1F23860 /* PluginPluginManager in Frameworks */ = {isa = PBXBuildFile; productRef = BD52A04E3446784A77ECDE15 /* PluginPluginManager */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0995329E396AF76446D94788 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeIOSApp.swift; sourceTree = "<group>"; };
 		248D4D1AA9674F12B68FF92E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		24E934DF45D4C369632E0D2D /* PluginMetronome */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PluginMetronome; path = Packages/PluginMetronome; sourceTree = SOURCE_ROOT; };
 		357BB5EA121806105FC64247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		359D18559C77AE3E208EB184 /* PluginSettingToolbar */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PluginSettingToolbar; path = Packages/PluginSettingToolbar; sourceTree = SOURCE_ROOT; };
 		3979F46B1CF563C6D6F990D4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		67C012AFAF999E2EFE00E9CA /* FactoryMetronome */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FactoryMetronome; path = Packages/FactoryMetronome; sourceTree = SOURCE_ROOT; };
+		407BDD07F4EB5079E00FA855 /* MetronomeManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeManifest.swift; sourceTree = "<group>"; };
+		5BDC63AD86DC528DF769CF63 /* PluginActivityBar */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PluginActivityBar; path = Packages/PluginActivityBar; sourceTree = SOURCE_ROOT; };
+		5BFA863CE2FEF94D948E4DEB /* PluginSettingGeneral */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PluginSettingGeneral; path = Packages/PluginSettingGeneral; sourceTree = SOURCE_ROOT; };
 		8AFAF1515D2069AEB137BAB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A2BA36331EBA36C19C2EF450 /* Metronome.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Metronome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeApp.swift; sourceTree = "<group>"; };
-		BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeMacApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,8 +54,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8752736139FB219130DA4CFB /* FactoryMetronomeMac in Frameworks */,
-				6C7678C5AB05FB1E04953C7C /* FactoryMetronomeIOS in Frameworks */,
+				8752736139FB219130DA4CFB /* PluginMetronome in Frameworks */,
+				6C7678C5AB05FB1E04953C7C /* PluginSettingGeneral in Frameworks */,
+				A2695A4CC927FFBFD3AEFB33 /* PluginSettingToolbar in Frameworks */,
+				6B9012B6B419D5035A7C2E59 /* PluginActivityBar in Frameworks */,
+				7DDD77876C9423D4F2F8CD95 /* LumiFactory in Frameworks */,
+				A86534027793040D2367C8EA /* WorkbenchRootView in Frameworks */,
+				65BD83C8CC503C95AD3DBAA7 /* KernelCore in Frameworks */,
+				A87D6522A9682A008CB4DB09 /* PluginSettingView in Frameworks */,
+				F39F85E5CBED8C48A1F23860 /* PluginPluginManager in Frameworks */,
+				E33BDF6D688A57761D8E2637 /* PluginThemePack in Frameworks */,
+				6EAC75B98AD23F760C310836 /* PluginAbout in Frameworks */,
+				22F4B73C2F6F55E212BA2102 /* PluginStorage in Frameworks */,
+				9E6F511929238C99254D6B6F /* PluginCommand in Frameworks */,
+				F12BB70AA2A06369AAB68075 /* PluginToast in Frameworks */,
+				3F5765FE69A7F6BF6B55DE70 /* ProviderSettingView in Frameworks */,
+				69B17DFA9F082C04A233477E /* ProviderRootView in Frameworks */,
+				4A5B0A10E1385F0DA830F92A /* ProviderToolbar in Frameworks */,
+				12418A22E9314DBF9C1A4C8B /* ProviderToast in Frameworks */,
+				7A68E2A812F2D831EDB8FF53 /* ProviderTheme in Frameworks */,
+				B1BF3CD1864BEF650146BED6 /* ProviderCommand in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +100,10 @@
 		74B9064C69489FE381097E69 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				67C012AFAF999E2EFE00E9CA /* FactoryMetronome */,
+				5BDC63AD86DC528DF769CF63 /* PluginActivityBar */,
+				24E934DF45D4C369632E0D2D /* PluginMetronome */,
+				5BFA863CE2FEF94D948E4DEB /* PluginSettingGeneral */,
+				359D18559C77AE3E208EB184 /* PluginSettingToolbar */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -74,8 +114,7 @@
 				357BB5EA121806105FC64247 /* Assets.xcassets */,
 				0995329E396AF76446D94788 /* Localizable.xcstrings */,
 				A408B9D4FF3ED5687E79FA56 /* MetronomeApp.swift */,
-				15D755443FC74BC794A3B368 /* MetronomeIOSApp.swift */,
-				BE3D6F1F15AA26738B96650C /* MetronomeMacApp.swift */,
+				407BDD07F4EB5079E00FA855 /* MetronomeManifest.swift */,
 				88EDEC69D98649193A6AF742 /* InfoPlist.strings */,
 			);
 			path = MetronomeApp;
@@ -98,8 +137,26 @@
 			);
 			name = Metronome;
 			packageProductDependencies = (
-				9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */,
-				29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */,
+				E87C0633FB95388D673103E1 /* PluginMetronome */,
+				98B5058D133507E2F1973377 /* PluginSettingGeneral */,
+				9DFB54942A99C176902A1583 /* PluginSettingToolbar */,
+				36221AC5B03173938B8D5A23 /* PluginActivityBar */,
+				3AF2C8AF50745AB9A3D6410C /* LumiFactory */,
+				BC9F944E256264CA0B88A73E /* WorkbenchRootView */,
+				37BC15DCEB22C916FB765002 /* KernelCore */,
+				B35D08749C5BEBFC9181DC0B /* PluginSettingView */,
+				BD52A04E3446784A77ECDE15 /* PluginPluginManager */,
+				70C89458545261479D138AAA /* PluginThemePack */,
+				DCB9E87EE2BA54F49237A712 /* PluginAbout */,
+				CECB0E8CC947DBF2EBE7AEA3 /* PluginStorage */,
+				82362ACBFA5B20D614BF2F44 /* PluginCommand */,
+				C9CF68D472149034793C8488 /* PluginToast */,
+				EA08DACD98D409E2485ED6BD /* ProviderSettingView */,
+				ABEE7BC7F72EF4DB28289D7B /* ProviderRootView */,
+				ECD2B91E313326C57D02933F /* ProviderToolbar */,
+				0205DEDFCE0FDD0225BBE94D /* ProviderToast */,
+				AB79A060C7BE3BF561E5E9EE /* ProviderTheme */,
+				F5875C281158F1D42928CEF0 /* ProviderCommand */,
 			);
 			productName = Metronome;
 			productReference = A2BA36331EBA36C19C2EF450 /* Metronome.app */;
@@ -134,12 +191,14 @@
 			mainGroup = 2A5E1EE9D2C5E98B5F327BC1;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				B746FA1C33413E6E1CBF75EE /* XCRemoteSwiftPackageReference "LumiFactory" */,
 				F36C7715F52859599F6D7F5A /* XCRemoteSwiftPackageReference "LumiKernel" */,
 				44BBC0F7CA411B3B40759DB2 /* XCRemoteSwiftPackageReference "LumiLocalization" */,
 				38B066915AA5E193BE93BEB9 /* XCRemoteSwiftPackageReference "LumiLogging" */,
 				8452B2F3E4D5A51EA8650859 /* XCRemoteSwiftPackageReference "LumiPluginAbout" */,
 				D50E02AB59865CE6D062ECE3 /* XCRemoteSwiftPackageReference "LumiPluginCommand" */,
 				66C7AC96EAA2E8AB3E97E1F4 /* XCRemoteSwiftPackageReference "LumiPluginPluginManager" */,
+				C048A36AEE3422F5249370B8 /* XCRemoteSwiftPackageReference "LumiPluginRootView" */,
 				67A9B8A1692427DB026D6462 /* XCRemoteSwiftPackageReference "LumiPluginSettingView" */,
 				EF349FC51B7E3352DDBBCBF2 /* XCRemoteSwiftPackageReference "LumiPluginStorage" */,
 				D68BEED3B9012F3942F152EA /* XCRemoteSwiftPackageReference "LumiPluginThemePack" */,
@@ -148,7 +207,10 @@
 				D1B160776045282E4F4312B5 /* XCRemoteSwiftPackageReference "LumiSettings" */,
 				734CF5DB1354F34E40119AF2 /* XCRemoteSwiftPackageReference "LumiThemePack" */,
 				3B70ECFBB9B9CDD9B36EA178 /* XCRemoteSwiftPackageReference "LumiUI" */,
-				B462D4DF56776C69A0A7FFB6 /* XCLocalSwiftPackageReference "Packages/FactoryMetronome" */,
+				93428360A0C99DDA322A58E7 /* XCLocalSwiftPackageReference "Packages/PluginActivityBar" */,
+				99AE613C6F99FDA1337C8ED3 /* XCLocalSwiftPackageReference "Packages/PluginMetronome" */,
+				C81D2C9337C38C98C9579038 /* XCLocalSwiftPackageReference "Packages/PluginSettingGeneral" */,
+				1166EFCB3D5C0C8F5BB33972 /* XCLocalSwiftPackageReference "Packages/PluginSettingToolbar" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53D63B33B4B9AC1E4EF28A3A /* Products */;
@@ -179,8 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				636936988A774422FAB46D68 /* MetronomeApp.swift in Sources */,
-				AE9A070B5413A4B0E058188C /* MetronomeIOSApp.swift in Sources */,
-				3EADEBFA1A83B2195BE4F39F /* MetronomeMacApp.swift in Sources */,
+				D8F21A133E6E03633D96291E /* MetronomeManifest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +269,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Y6HZ9JJYV6;
 				ENABLE_APP_SANDBOX = YES;
@@ -259,7 +320,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = Y6HZ9JJYV6;
 				ENABLE_APP_SANDBOX = YES;
@@ -447,9 +508,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		B462D4DF56776C69A0A7FFB6 /* XCLocalSwiftPackageReference "Packages/FactoryMetronome" */ = {
+		1166EFCB3D5C0C8F5BB33972 /* XCLocalSwiftPackageReference "Packages/PluginSettingToolbar" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/FactoryMetronome;
+			relativePath = Packages/PluginSettingToolbar;
+		};
+		93428360A0C99DDA322A58E7 /* XCLocalSwiftPackageReference "Packages/PluginActivityBar" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/PluginActivityBar;
+		};
+		99AE613C6F99FDA1337C8ED3 /* XCLocalSwiftPackageReference "Packages/PluginMetronome" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/PluginMetronome;
+		};
+		C81D2C9337C38C98C9579038 /* XCLocalSwiftPackageReference "Packages/PluginSettingGeneral" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/PluginSettingGeneral;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -467,7 +540,7 @@
 			repositoryURL = "https://github.com/lumi-softworks/LumiUI.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.17.1;
+				version = 1.18.1;
 			};
 		};
 		44BBC0F7CA411B3B40759DB2 /* XCRemoteSwiftPackageReference "LumiLocalization" */ = {
@@ -523,7 +596,23 @@
 			repositoryURL = "https://github.com/lumi-softworks/LumiProviders.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.23.0;
+				version = 1.26.0;
+			};
+		};
+		B746FA1C33413E6E1CBF75EE /* XCRemoteSwiftPackageReference "LumiFactory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiFactory.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
+			};
+		};
+		C048A36AEE3422F5249370B8 /* XCRemoteSwiftPackageReference "LumiPluginRootView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lumi-softworks/LumiPluginRootView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.2;
 			};
 		};
 		D1B160776045282E4F4312B5 /* XCRemoteSwiftPackageReference "LumiSettings" */ = {
@@ -569,13 +658,101 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		29667BAD04F253F10D063CFB /* FactoryMetronomeIOS */ = {
+		0205DEDFCE0FDD0225BBE94D /* ProviderToast */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FactoryMetronomeIOS;
+			package = 88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */;
+			productName = ProviderToast;
 		};
-		9BB1AC0B108AC999C3194443 /* FactoryMetronomeMac */ = {
+		36221AC5B03173938B8D5A23 /* PluginActivityBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FactoryMetronomeMac;
+			productName = PluginActivityBar;
+		};
+		37BC15DCEB22C916FB765002 /* KernelCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F36C7715F52859599F6D7F5A /* XCRemoteSwiftPackageReference "LumiKernel" */;
+			productName = KernelCore;
+		};
+		3AF2C8AF50745AB9A3D6410C /* LumiFactory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B746FA1C33413E6E1CBF75EE /* XCRemoteSwiftPackageReference "LumiFactory" */;
+			productName = LumiFactory;
+		};
+		70C89458545261479D138AAA /* PluginThemePack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D68BEED3B9012F3942F152EA /* XCRemoteSwiftPackageReference "LumiPluginThemePack" */;
+			productName = PluginThemePack;
+		};
+		82362ACBFA5B20D614BF2F44 /* PluginCommand */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D50E02AB59865CE6D062ECE3 /* XCRemoteSwiftPackageReference "LumiPluginCommand" */;
+			productName = PluginCommand;
+		};
+		98B5058D133507E2F1973377 /* PluginSettingGeneral */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PluginSettingGeneral;
+		};
+		9DFB54942A99C176902A1583 /* PluginSettingToolbar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PluginSettingToolbar;
+		};
+		AB79A060C7BE3BF561E5E9EE /* ProviderTheme */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */;
+			productName = ProviderTheme;
+		};
+		ABEE7BC7F72EF4DB28289D7B /* ProviderRootView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */;
+			productName = ProviderRootView;
+		};
+		B35D08749C5BEBFC9181DC0B /* PluginSettingView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67A9B8A1692427DB026D6462 /* XCRemoteSwiftPackageReference "LumiPluginSettingView" */;
+			productName = PluginSettingView;
+		};
+		BC9F944E256264CA0B88A73E /* WorkbenchRootView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C048A36AEE3422F5249370B8 /* XCRemoteSwiftPackageReference "LumiPluginRootView" */;
+			productName = WorkbenchRootView;
+		};
+		BD52A04E3446784A77ECDE15 /* PluginPluginManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66C7AC96EAA2E8AB3E97E1F4 /* XCRemoteSwiftPackageReference "LumiPluginPluginManager" */;
+			productName = PluginPluginManager;
+		};
+		C9CF68D472149034793C8488 /* PluginToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4CD28730F520D6B69B995DD0 /* XCRemoteSwiftPackageReference "LumiPluginToast" */;
+			productName = PluginToast;
+		};
+		CECB0E8CC947DBF2EBE7AEA3 /* PluginStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF349FC51B7E3352DDBBCBF2 /* XCRemoteSwiftPackageReference "LumiPluginStorage" */;
+			productName = PluginStorage;
+		};
+		DCB9E87EE2BA54F49237A712 /* PluginAbout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8452B2F3E4D5A51EA8650859 /* XCRemoteSwiftPackageReference "LumiPluginAbout" */;
+			productName = PluginAbout;
+		};
+		E87C0633FB95388D673103E1 /* PluginMetronome */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PluginMetronome;
+		};
+		EA08DACD98D409E2485ED6BD /* ProviderSettingView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1B160776045282E4F4312B5 /* XCRemoteSwiftPackageReference "LumiSettings" */;
+			productName = ProviderSettingView;
+		};
+		ECD2B91E313326C57D02933F /* ProviderToolbar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */;
+			productName = ProviderToolbar;
+		};
+		F5875C281158F1D42928CEF0 /* ProviderCommand */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88ACF45D9AB3D2B1F1F46B70 /* XCRemoteSwiftPackageReference "LumiProviders" */;
+			productName = ProviderCommand;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

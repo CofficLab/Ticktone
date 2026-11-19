@@ -41,7 +41,7 @@ scope 为**模块名或组件名**，使用 PascalCase 或 kebab-case，与代�
 |------|-----------|
 | 核心框架 | `MetronomeCore`、`MetronomeEngine`、`MetronomeSettings` |
 | UI 组件 | `MetronomeStageView`、`MetronomeControlPanel`、`PendulumView` |
-| 插件 | `PluginMetronome`、`FactoryMetronome` |
+| 插件 | `PluginMetronome`、`PluginSettingGeneral` |
 | Package | `MetronomeCore`、`PluginMetronome` |
 
 ### 规则

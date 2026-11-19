@@ -39,10 +39,10 @@ open Metronome.xcodeproj
 
 ### 目录结构
 
-- `MetronomeApp/` — App 入口、Info.plist、entitlements、资源与本地化
+- `MetronomeApp/` — App 入口与宿主清单（`MetronomeManifest.swift`）、Info.plist、entitlements、资源与本地化
 - `Packages/PluginMetronome/` — `MetronomeCore`（纯领域逻辑）与 `PluginMetronome`（音频引擎、视图、插件）
-- `Packages/FactoryMetronome/` — macOS 与 iOS 的装配根，基于 Lumi Kernel/Provider/Plugin 架构
-- `Packages/AppFactoryCore/`、`ProviderSettingsHost/`、`PluginRootView/`、`PluginSettingGeneral/`、`PluginSettingToolbar/`、`PluginActivityBar/` — 装配使用的宿主壳包
+- `Packages/PluginSettingGeneral/`、`PluginSettingToolbar/`、`PluginActivityBar/` — 宿主壳插件
+- 装配由远程 `LumiFactory` 包提供（内核流水线、macOS/iOS 窗口壳）；App 只声明清单
 - `scripts/` — 包测试脚本
 
 ## 测试

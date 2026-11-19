@@ -39,10 +39,10 @@ Select the `Metronome` scheme and run. The target builds for macOS and iOS; use 
 
 ### Project layout
 
-- `MetronomeApp/` — app entry, Info.plist, entitlements, assets, localizations
+- `MetronomeApp/` — app entry and host manifest (`MetronomeManifest.swift`), Info.plist, entitlements, assets, localizations
 - `Packages/PluginMetronome/` — `MetronomeCore` (pure domain logic) and `PluginMetronome` (audio engine, views, plugin)
-- `Packages/FactoryMetronome/` — macOS and iOS assembly roots built on the Lumi Kernel/Provider/Plugin architecture
-- `Packages/AppFactoryCore/`, `ProviderSettingsHost/`, `PluginRootView/`, `PluginSettingGeneral/`, `PluginSettingToolbar/`, `PluginActivityBar/` — host shell packages used by the assembly
+- `Packages/PluginSettingGeneral/`, `PluginSettingToolbar/`, `PluginActivityBar/` — host shell plugins
+- Assembly comes from the remote `LumiFactory` package (kernel pipeline, macOS/iOS window shells); the app only declares its manifest
 - `scripts/` — package test runner
 
 ## Tests

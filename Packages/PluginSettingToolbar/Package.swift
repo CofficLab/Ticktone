@@ -36,6 +36,7 @@ let package = Package(
                 "PluginSettingToolbar",
                 .product(name: "KernelCore", package: "LumiKernel"),
                 .product(name: "ProviderToolbar", package: "LumiProviders"),
+                .product(name: "LumiUI", package: "LumiUI"),
             ],
             path: "Tests/PluginSettingToolbarTests"
         ),

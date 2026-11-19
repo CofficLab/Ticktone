@@ -43,7 +43,7 @@ public final class SettingsToolbarPlugin: SuperPlugin {
         toolbar.addToolbarItems([
             ToolbarItem(
                 id: itemID,
-                title: "设置",
+                title: LumiUILocalization.string("Settings"),
                 placement: .trailing,
                 category: .global,
                 order: 300

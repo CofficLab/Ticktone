@@ -6,17 +6,29 @@ options:
     iOS: "17.0"
 
 packages:
-  FactoryMetronome:
-    path: Packages/FactoryMetronome
+  PluginMetronome:
+    path: Packages/PluginMetronome
+  PluginSettingGeneral:
+    path: Packages/PluginSettingGeneral
+  PluginSettingToolbar:
+    path: Packages/PluginSettingToolbar
+  PluginActivityBar:
+    path: Packages/PluginActivityBar
+  LumiFactory:
+    url: https://github.com/lumi-softworks/LumiFactory.git
+    exactVersion: 1.3.0
+  LumiPluginRootView:
+    url: https://github.com/lumi-softworks/LumiPluginRootView.git
+    exactVersion: 1.3.2
   LumiKernel:
     url: https://github.com/lumi-softworks/LumiKernel.git
     exactVersion: 1.1.1
   LumiUI:
     url: https://github.com/lumi-softworks/LumiUI.git
-    exactVersion: 1.17.1
+    exactVersion: 1.18.1
   LumiProviders:
     url: https://github.com/lumi-softworks/LumiProviders.git
-    exactVersion: 1.23.0
+    exactVersion: 1.26.0
   LumiLocalization:
     url: https://github.com/lumi-softworks/LumiLocalization.git
     exactVersion: 1.0.2
@@ -63,16 +75,52 @@ targets:
           - "Metronome.xcconfig"
           - "App.entitlements"
     dependencies:
-      - package: FactoryMetronome
-        product: FactoryMetronomeMac
-      - package: FactoryMetronome
-        product: FactoryMetronomeIOS
+      - package: PluginMetronome
+        product: PluginMetronome
+      - package: PluginSettingGeneral
+        product: PluginSettingGeneral
+      - package: PluginSettingToolbar
+        product: PluginSettingToolbar
+      - package: PluginActivityBar
+        product: PluginActivityBar
+      - package: LumiFactory
+        product: LumiFactory
+      - package: LumiPluginRootView
+        product: WorkbenchRootView
+      - package: LumiKernel
+        product: KernelCore
+      - package: LumiPluginSettingView
+        product: PluginSettingView
+      - package: LumiPluginPluginManager
+        product: PluginPluginManager
+      - package: LumiPluginThemePack
+        product: PluginThemePack
+      - package: LumiPluginAbout
+        product: PluginAbout
+      - package: LumiPluginStorage
+        product: PluginStorage
+      - package: LumiPluginCommand
+        product: PluginCommand
+      - package: LumiPluginToast
+        product: PluginToast
+      - package: LumiSettings
+        product: ProviderSettingView
+      - package: LumiProviders
+        product: ProviderRootView
+      - package: LumiProviders
+        product: ProviderToolbar
+      - package: LumiProviders
+        product: ProviderToast
+      - package: LumiProviders
+        product: ProviderTheme
+      - package: LumiProviders
+        product: ProviderCommand
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.coffic.metronome
         PRODUCT_NAME: Metronome
         MARKETING_VERSION: "1.0.0"
-        CURRENT_PROJECT_VERSION: "1"
+        CURRENT_PROJECT_VERSION: "2"
         SWIFT_VERSION: "6.0"
         SWIFT_EMIT_LOC_STRINGS: YES
         DEVELOPMENT_TEAM: Y6HZ9JJYV6
